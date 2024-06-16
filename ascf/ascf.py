@@ -76,14 +76,14 @@ class TwoBrush:
         return self.phi(d) + quad(self.phi, d, self.N, args=())[0] / d
     
     def overlap_zone(self, a, d):
-        return a * self.N**(2/3) * d**(-1/3) 
+        return a * self.N**(2/3) * (2*d)**(-1/3) 
     
     def pressure(self, d):
         phi = self.phi_midplace(d)
         return  -phi - np.log(1 - phi) - self.chi * phi**2
     
     def overlap_integral(self, a, d):
-        return self.phi_midplace(d) * self.overlap_zone(a, d)
+        return self.phi_midplace(d)**2 * self.overlap_zone(a, d)
         
         
             
